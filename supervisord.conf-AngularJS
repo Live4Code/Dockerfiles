@@ -1,0 +1,5 @@
+[supervisord]
+nodaemon=true
+
+[program:webdrive]
+command=webdriver-manager start
