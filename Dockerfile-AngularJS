@@ -30,14 +30,18 @@ RUN npm install -g protractor
 RUN webdriver-manager update
 
 #nodegit dependencies
-RUN apt-get -y install cmake libssl-dev
+#RUN apt-get -y install cmake libssl-dev
 
 # setup files and directory
 RUN mkdir -p /root/live4code
 ADD ./webrunner /root/live4code
 RUN cd /root/live4code; npm install
 
-EXPOSE 3005 8000 22
+EXPOSE 3005 8000
+
+# setup start script for ghostdriver
+ADD ./ghostdriver.sh /root/
+RUN chmod 755 /root/ghostdriver.sh
 
 # expose volume
 VOLUME /var/tmp
@@ -45,12 +49,14 @@ VOLUME /var/tmp
 # set env vars for discovery service
 ENV DISCOVER api-server:3005,user-server:8000
 
+ENV NODE_ENV development
+
 # Installing supervisord
 RUN apt-get install -y supervisor 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+#RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #use supervisor to controll what we want to start
 CMD ["/usr/bin/supervisord"]
