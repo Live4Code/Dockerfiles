@@ -2,4 +2,8 @@
 nodaemon=true
 
 [program:webdrive]
-command=webdriver-manager start
+command=/root/ghostdriver.sh
+
+[program:webrunner]
+directory=/root/live4code
+command=node app/app.js
