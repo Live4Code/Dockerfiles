@@ -12,7 +12,7 @@ RUN npm install -g bower
 
 #phantomjs dependencies
 RUN apt-get -y install libfreetype6 libfreetype6-dev libfontconfig
-RUN npm install -g phantomjs
+RUN npm install -g phantomjs@1.9.13
 
 #selenium server need java
 RUN apt-get -y install default-jre
@@ -24,7 +24,7 @@ RUN npm install -g karma-jasmine
 RUN npm install -g http-server
 
 #protractor e2e test
-RUN npm install -g protractor
+RUN npm install -g protractor@1.5.0
 
 #install selenium webdriver
 RUN webdriver-manager update
