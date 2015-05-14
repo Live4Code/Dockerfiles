@@ -1,9 +1,0 @@
-[supervisord]
-nodaemon=true
-
-[program:webdrive]
-command=/root/ghostdriver.sh
-
-[program:webrunner]
-directory=/root/live4code
-command=node app/app.js
