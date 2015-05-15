@@ -1,6 +1,8 @@
 # Pull base image.
 FROM dspfac/base-iojs
 
+ENV NPM_CONFIG_LOGLEVEL warn
+
 #phantomjs dependencies
 RUN apt-get update && apt-get -y install bzip2 libfreetype6 libfreetype6-dev libfontconfig && rm -rf /var/lib/apt/lists/*
 RUN npm install -g phantomjs@1.9.15
