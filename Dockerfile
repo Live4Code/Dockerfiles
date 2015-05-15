@@ -1,5 +1,5 @@
 # Pull base image.
-FROM dspfac/base-iojs:1-slim
+FROM dspfac/base-iojs
 
 #phantomjs dependencies
 RUN apt-get update && apt-get -y install bzip2 libfreetype6 libfreetype6-dev libfontconfig && rm -rf /var/lib/apt/lists/*
