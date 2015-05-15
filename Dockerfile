@@ -5,5 +5,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		make \
 		g++ \
 		python \
+                openssh-client \
                 supervisor \
 	&& rm -rf /var/lib/apt/lists/*
