@@ -10,7 +10,7 @@ RUN npm install -g grunt-contrib-connect@0.10.1
 
 ENV COURSE mobile-angular-react
 
-EXPOSE 3005 8000 9000 35370 4000
+EXPOSE 3005 8000 9000 35730 4000
 
 ENV DISCOVER api-server:3005,user-server:8000,grunt-server:9000,livereload:35730,codebox-server:4000
 
