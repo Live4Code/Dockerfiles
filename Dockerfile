@@ -35,3 +35,17 @@ RUN npm install -g through2-map
 # course specific npms
 # for javascripting course validation
 RUN npm install -g javascripting@1.12.0
+
+ENV COURSE js
+
+EXPOSE 3005 8000 4000
+
+VOLUME /var/tmp
+
+ENV DISCOVER api-server:3005,user-server:8000,codebox-server:4000
+
+WORKDIR /var/tmp
+
+COPY . /root/
+
+CMD /root/run.sh
