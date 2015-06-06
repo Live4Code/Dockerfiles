@@ -1,5 +1,5 @@
 # Pull base image.
-FROM dspfac/base-iojs
+FROM dspfac/codebox-fix
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
