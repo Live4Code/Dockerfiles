@@ -1,0 +1,19 @@
+reids:
+  restart: always
+  image: redis
+  ports: 
+   - "6379:6379"
+
+selenium:
+  restart: always
+  image: dspfac/selenium
+  ports:
+   - "4444:4444"
+
+task:
+  restart: always
+  image: dspfac/runnertaskserver:local
+  volumes:
+   - /var/run/docker.sock:/tmp/docker.sock
+
+
