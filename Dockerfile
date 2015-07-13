@@ -35,3 +35,7 @@ RUN npm install -g through2-map
 # course specific npms
 # for javascripting course validation
 RUN npm install -g javascripting@1.12.0
+
+# course specific npms
+# for scope-chains-closures course validation
+RUN npm install -g scope-chains-closures@1.0.4
