@@ -29,7 +29,7 @@ RUN npm install -g object-assign@1.0.0
 RUN npm install -g react@0.12.0
 RUN npm install -g browserify@6.2.0
 RUN npm install -g envify@3.0.0
-RUN npm install -g jest-cli@0.4.0
+RUN npm install -g jest-cli@0.6.0
 RUN npm install -g reactify@0.15.2
 RUN npm install -g watchify@2.4.0
 RUN npm install -g react-router@0.12.4
@@ -37,4 +37,3 @@ RUN npm install -g es5-shim@4.1.0
 
 #install selenium webdriver
 # RUN webdriver-manager update
-
