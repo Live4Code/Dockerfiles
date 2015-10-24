@@ -1,7 +1,7 @@
 FROM node:4
 
 RUN apt-get update && \
-    apt-get -y install software-properties-common git-core build-essential automake unzip python-dev python-setuptools && \
+    apt-get -y install software-properties-common git-core build-essential automake unzip python-dev python-setuptools supervisor && \
     rm -rf /var/lib/apt/lists/*
 
 RUN git clone -b v3.8.0 https://github.com/facebook/watchman.git /tmp/watchman
@@ -12,8 +12,8 @@ RUN make
 RUN make install
 
 ADD package.json /tmp/package.json
-#RUN cd /tmp && npm install || true
-ADD node_modules /tmp/node_modules
+RUN cd /tmp && npm install || true
+#ADD node_modules /tmp/node_modules
 #RUN mkdir -p /app && cp -a /tmp/node_modules /app/
 #RUN rm -rf /tmp/* /var/tmp/*
 RUN mkdir -p /usr/local/var/run/watchman/
