@@ -3,12 +3,10 @@
   "name": "react-native-packager-docker",
   "version": "0.12.0",
   "description": "Docker environment for running the React Native packager",
-  "author": "Joshua Sierles",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rnplay/react-native-packager-docker/issues"
+  "scripts": {
+    "start": "node_modules/react-native/packager/packager.sh",
+    "postinstall": "find node_modules -type f -name .babelrc | grep -v /react-native/ | xargs rm"
   },
-  "homepage": "https://github.com/rnplay/react-native-packager-docker",
   "dependencies": {
     "art": "0.10.0",
     "fb-watchman": "1.6.0",
