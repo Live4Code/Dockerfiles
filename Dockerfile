@@ -1,5 +1,5 @@
 # Pull base image.
-FROM dspfac/base-iojs
+FROM guofoo/base-iojs
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
