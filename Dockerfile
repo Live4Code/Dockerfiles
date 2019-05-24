@@ -1,5 +1,5 @@
 # Pull base image.
-FROM guofoo/base-iojs
+FROM live4code/base-iojs
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
