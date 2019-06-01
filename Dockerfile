@@ -1,41 +1,14 @@
-# Pull base image.
-FROM live4code/base-iojs
+FROM nginx
 
-ENV NPM_CONFIG_LOGLEVEL warn
+RUN apt-get update && apt-get install -y --no-install-recommends \
+                redis-server \
+		supervisor \
+	&& rm -rf /var/lib/apt/lists/*
 
-#install other npm dependencies
-RUN npm install -g mocha@2.1.0
-RUN npm install -g grunt-cli@0.1.13
-RUN npm install -g http-server@0.7.4
+COPY ./supervisord.conf /etc/supervisor/supervisord.conf
+COPY ./redis.conf /etc/redis.conf
 
-# course specific npms
-# for nodejs-stream-adventure validation
-RUN npm install -g stream-adventure@4.0.2
-RUN npm install -g through2
-RUN npm install -g split
-RUN npm install -g concat-stream
-RUN npm install -g request
-RUN npm install -g stream-combiner
-RUN npm install -g trumpet
-RUN npm install -g websocket-stream
-RUN npm install -g duplexer2
-RUN npm install -g stream-combiner
-RUN npm install -g strip
-RUN npm install -g crypto
-RUN npm install -g tar
+EXPOSE 80
+EXPOSE 6793
 
-# course specific npms
-# for nodejs-learn-you-node course validation
-RUN npm install -g learnyounode@2.5.0
-RUN npm install -g strip-ansi@2.0.1
-RUN npm install -g path
-RUN npm install -g bl
-RUN npm install -g through2-map
-
-# course specific npms
-# for javascripting course validation
-RUN npm install -g javascripting@1.12.0
-
-# course specific npms
-# for scope-chains-closures course validation
-RUN npm install -g scope-chains-closures@1.0.4
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
