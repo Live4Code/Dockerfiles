@@ -1,20 +1,21 @@
 # Pull base image.
-FROM dspfac/base-iojs
+FROM live4code/base-iojs
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
 #phantomjs dependencies
 RUN apt-get update && apt-get -y install bzip2 libfreetype6 libfreetype6-dev libfontconfig && rm -rf /var/lib/apt/lists/*
-RUN npm install -g phantomjs@1.9.15
+#RUN npm install -g phantomjs-prebuilt@2.1.14 --unsafe-perm
+RUN npm install -g phantomjs@2.1.1 --unsafe-perm
 
 #selenium server need java
 # RUN apt-get update && apt-get -y install default-jre
 
 #install npm dependencies for testing tools
 RUN npm install -g mocha@2.1.0
-RUN npm install -g karma-cli@0.0.4
-RUN npm install -g karma-phantomjs-launcher@0.1.4
-RUN npm install -g karma-jasmine@0.3.5
+RUN npm install -g karma-cli@1.0.1
+RUN npm install -g karma-phantomjs-launcher@1.0.4 --unsafe-perm
+RUN npm install -g karma-jasmine@1.1.2
 RUN npm install -g http-server@0.7.4
 RUN npm install -g protractor-html-screenshot-reporter@0.0.19
 RUN npm install -g karma-htmlfile-reporter@0.1.2
