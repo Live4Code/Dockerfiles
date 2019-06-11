@@ -1,5 +1,5 @@
 # Pull base image.
-FROM dspfac/base-web
+FROM live4code/base-web
 
 #cordova, ionic and grunt
 RUN npm install -g cordova@4.3.0
