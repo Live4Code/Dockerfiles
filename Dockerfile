@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:8-slim
 
 RUN apt-get update && \
     apt-get -y install software-properties-common git-core build-essential automake unzip python-dev python-setuptools supervisor && \
