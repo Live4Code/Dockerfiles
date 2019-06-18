@@ -1,10 +1,10 @@
 FROM node:8-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		git \
-		make \
-		g++ \
-		python \
-                openssh-client \
-                supervisor \
-	&& rm -rf /var/lib/apt/lists/*
+      git \
+      make \
+      g++ \
+      python \
+      openssh-client \
+      supervisor \
+    && rm -rf /var/lib/apt/lists/*
