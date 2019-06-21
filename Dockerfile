@@ -1,5 +1,5 @@
 # Pull base image.
-FROM dspfac/codebox-fix
+FROM live4code/codebox
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
